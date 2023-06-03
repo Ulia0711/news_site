@@ -1,0 +1,131 @@
+.header {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header a {
+  color: #eaed13;
+  text-decoration: none;
+}
+
+/* Стили для news-container */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.news-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(37, 240, 87, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+}
+
+.news-card h2 {
+  margin-top: 0;
+}
+
+.news-card p {
+  margin-bottom: 10px;
+}
+
+.news-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Стили для form-container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d32f2f;
+}
+
+/* Стили для product-card */
+.product-card {
+  background-color: #d10f0f;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+}
+
+.product-card img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.product-card h1 {
+  margin-top: 0;
+}
+
+.product-card h2 {
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  margin-bottom: 0;
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.news-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(37, 240, 87, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.news-card h2 {
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+}
+
+.news-card .content {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.news-card.active .content {
+  display: block;
+}

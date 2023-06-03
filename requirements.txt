@@ -1,2 +1,5 @@
 Django
 Pillow
+asgiref
+channels
+daphne
