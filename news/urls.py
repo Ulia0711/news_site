@@ -3,7 +3,7 @@ from rest_framework import routers
 from .views import (
     news_list, news_detail,add_comment,
     UserView, NewsViewSet, PostView,
-    create_news,
+    create_news, test_locale
 )
 
 router = routers.DefaultRouter()
@@ -16,6 +16,8 @@ urlpatterns = [
     path('', news_list, name='index'),
     path('news/<int:news_id>/', news_detail, name='news_detail'),
     path('add_comment/', add_comment, name='add_comment'),
+    path('test_locale/', news_list, name='test_locale'),
+
 ]
 
 # urlpatterns = [

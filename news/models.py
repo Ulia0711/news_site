@@ -77,7 +77,11 @@ class News(models.Model):
     )
 
     title = models.CharField('Заголовок', max_length=255, default='')
+    title_kaz = models.CharField('Заголовок на казахском', max_length=255, default='')
+
     text = models.TextField('Описание', default='')
+    text_kaz = models.TextField('Описание на казахском', default='')
+
     date_post = models.DateTimeField('Дата создания поста', default=timezone.now)
     news_type = models.IntegerField('Тип новости', choices=NEWS_TYPES)
 

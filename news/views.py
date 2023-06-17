@@ -10,7 +10,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView
 from rest_framework import status
 from .models import Post, News, Comment, User
-from .serializers import PostSerializer, UserSerializer, NewsSerializer
+from .serializers import PostSerializer, UserSerializer, NewsSerializer, NewsKzSerializer
 from .forms import PostForms
 from .permissions import SuperAdmin
 from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
@@ -19,6 +19,7 @@ from rest_framework.decorators import action
 from django.http import HttpResponse
 from django.views.generic import DetailView
 from django.http import HttpResponseNotAllowed
+from django.utils.translation import gettext as _
 
 class PostView(ModelViewSet):
     serializer_class = PostSerializer
@@ -171,6 +172,15 @@ class NewsViewSet(ModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
 
+    def get_serializer_class(self):
+        if "Accept-Language" in self.request.headers:
+            if self.request.headers["Accept-Language"] == "kz":
+                return NewsKzSerializer
+            else:
+                return News
+        else:
+            return super(NewsSerializer, self).get_serializer_class()
+
 # Функция news_list отображает список всех новостей
 
 def news_list(request):
@@ -228,3 +238,7 @@ def add_comment(request):
         return redirect('news_detail', news_id=news_id)
     else:
         return HttpResponse(status=405)
+
+def test_locale(request):
+    output=('statusMsg')
+    return HttpResponse(output)

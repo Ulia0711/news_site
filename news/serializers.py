@@ -72,5 +72,15 @@ class PostSerializer(serializers.ModelSerializer):
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = News
-        fields = '__all__'
+        model=News
+        exclude=['title_kaz','text_kaz']
+
+class NewsKzSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=News
+        exclude=['title_kaz','text_kaz']
+        extra_kwargs={
+            'title':{'source':'title_kaz'},
+            'text':{'source':'text_kaz'}
+        }
+   
